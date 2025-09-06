@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AvSafeDelivery.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
+             x:Class="AvSafeDelivery.Views.PhotoView"
+             x:DataType="vm:PhotoViewModel">
+  <Design.DataContext>
+    <vm:PhotoViewModel />
+  </Design.DataContext>
+
+  <Grid RowDefinitions="Auto,Auto,Auto" Margin="12">
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,8">
+      <Button x:Name="UploadButton" Content="Upload Photos" />
+      <Button x:Name="TakePhotoButton" Content="Take Photo" />
+    </StackPanel>
+
+    <TextBlock Grid.Row="1" Text="{Binding StatusMessage}" Foreground="Red" HorizontalAlignment="Center" />
+
+    <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Height="220">
+      <ItemsControl ItemsSource="{Binding Images}">
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+            <StackPanel Orientation="Horizontal" />
+          </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <Border BorderBrush="Gray" BorderThickness="1" Margin="6">
+              <Image Source="{Binding}" Width="300" Height="200" Stretch="UniformToFill" />
+            </Border>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </ScrollViewer>
+  </Grid>
+</UserControl>

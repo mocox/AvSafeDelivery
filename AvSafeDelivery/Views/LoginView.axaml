@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AvSafeDelivery.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
+             x:Class="AvSafeDelivery.Views.LoginView"
+             x:DataType="vm:LoginViewModel">
+  <Design.DataContext>
+    <vm:LoginViewModel />
+  </Design.DataContext>
+
+  <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" Margin="16" ColumnDefinitions="*,*">
+    <TextBlock Grid.ColumnSpan="2" Text="Login" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,12" />
+
+    <TextBlock Grid.Row="1" Grid.Column="0" Text="Email:" VerticalAlignment="Center" />
+    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Email, Mode=TwoWay}" />
+
+    <TextBlock Grid.Row="2" Grid.Column="0" Text="Password:" VerticalAlignment="Center" />
+    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Password, Mode=TwoWay}" PasswordChar="*" />
+
+    <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,12,0,0">
+      <Button Content="Login" Command="{Binding LoginCommand}" />
+      <Button Content="Login with Google" Command="{Binding LoginWithGoogleCommand}" />
+      <Button Content="Login with Facebook" Command="{Binding LoginWithFacebookCommand}" />
+    </StackPanel>
+
+    <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Text="{Binding StatusMessage}" Foreground="Red" Margin="0,12,0,0" />
+  </Grid>
+</UserControl>

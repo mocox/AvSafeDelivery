@@ -6,6 +6,7 @@ using System.Linq;
 using Avalonia.Markup.Xaml;
 using AvSafeDelivery.ViewModels;
 using AvSafeDelivery.Views;
+using AvSafeDelivery.Services;
 
 namespace AvSafeDelivery;
 
@@ -23,6 +24,14 @@ public partial class App : Application
             // Avoid duplicate validations from both Avalonia and the CommunityToolkit. 
             // More info: https://docs.avaloniaui.net/docs/guides/development-guides/data-validation#manage-validationplugins
             DisableAvaloniaDataAnnotationValidation();
+
+            // register desktop services
+            try
+            {
+                ServiceLocator.Register<IAuthService>(new DesktopAuthService());
+            }
+            catch { }
+
             desktop.MainWindow = new MainWindow
             {
                 DataContext = new MainViewModel()

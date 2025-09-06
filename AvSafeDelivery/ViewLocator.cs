@@ -12,8 +12,21 @@ public class ViewLocator : IDataTemplate
         if (param is null)
             return null;
 
-        var name = param.GetType().FullName!.Replace("ViewModel", "View", StringComparison.Ordinal);
+        // Try to map ViewModel type to a View type in the Views namespace.
+        var vmFullName = param.GetType().FullName!;
+
+        // Replace the typical ViewModel suffix with View and map ViewModels namespace to Views namespace.
+        var name = vmFullName.Replace("ViewModel", "View", StringComparison.Ordinal)
+                             .Replace(".ViewModels.", ".Views.", StringComparison.Ordinal);
+
         var type = Type.GetType(name);
+
+        // fallback: try the simple replace (original behavior) in case of different namespaces
+        if (type == null)
+        {
+            var alt = vmFullName.Replace("ViewModel", "View", StringComparison.Ordinal);
+            type = Type.GetType(alt);
+        }
 
         if (type != null)
         {

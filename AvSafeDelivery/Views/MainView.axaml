@@ -11,16 +11,21 @@
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
     <vm:MainViewModel />
   </Design.DataContext>
-    
-  <Grid HorizontalAlignment="Center" RowDefinitions="1*, 10*, 5*" Margin="5">
-      <Panel Grid.Row="0"  HorizontalAlignment="Center">
-          <TextBlock Text="{Binding Greeting}" />
-      </Panel>
-      <Panel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-          <Label Content="Panel" />
-      </Panel>
-      <Panel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-          <Button Content="This Button" />
-      </Panel>
+
+  <Grid Margin="8">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <!-- Simple navigation header -->
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,8">
+      <Button Content="Login" Command="{Binding ShowLoginCommand}" />
+      <Button Content="Register" Command="{Binding ShowRegisterCommand}" />
+      <Button Content="Photos" Command="{Binding ShowPhotoCommand}" />
+    </StackPanel>
+
+    <!-- Host the current view via the ViewLocator data template mapping -->
+    <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}" />
   </Grid>
 </UserControl>
