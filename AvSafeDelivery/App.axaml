@@ -1,0 +1,17 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:AvSafeDelivery"
+             x:Class="AvSafeDelivery.App"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows the system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <FluentTheme />
+        
+        <StyleInclude Source="avares://AvSafeDelivery/Styles/SafeDeliveryStyles.axaml"></StyleInclude>
+    </Application.Styles>
+</Application>
