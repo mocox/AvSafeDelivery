@@ -3,28 +3,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:AvSafeDelivery.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="300"
+             mc:Ignorable="d" 
              x:Class="AvSafeDelivery.Views.LoginView"
              x:DataType="vm:LoginViewModel">
   <Design.DataContext>
     <vm:LoginViewModel />
   </Design.DataContext>
 
-  <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" Margin="16" ColumnDefinitions="*,*">
-    <TextBlock Grid.ColumnSpan="2" Text="Login" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,12" />
-
-    <TextBlock Grid.Row="1" Grid.Column="0" Text="Email:" VerticalAlignment="Center" />
-    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Email, Mode=TwoWay}" />
-
-    <TextBlock Grid.Row="2" Grid.Column="0" Text="Password:" VerticalAlignment="Center" />
-    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Password, Mode=TwoWay}" PasswordChar="*" />
-
-    <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,12,0,0">
-      <Button Content="Login" Command="{Binding LoginCommand}" />
-      <Button Content="Login with Google" Command="{Binding LoginWithGoogleCommand}" />
-      <Button Content="Login with Facebook" Command="{Binding LoginWithFacebookCommand}" />
-    </StackPanel>
-
-    <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Text="{Binding StatusMessage}" Foreground="Red" Margin="0,12,0,0" />
+  <Grid RowDefinitions="Auto,Auto,Auto,Auto" Margin="16">
+    
+    <Panel>
+      <TextBlock Text="Login" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,12" />
+    </Panel>
+    
+    <Border Grid.Row="1" Width="600" Classes="Bordered shadow-dark">
+      <StackPanel HorizontalAlignment="Stretch" Margin="10 0">
+            <TextBlock Text="Email" VerticalAlignment="Center" Margin="0 5"/>
+            <TextBox Watermark="Enter email ..." Text="{Binding Email, Mode=TwoWay}" />
+            <TextBlock Text="Password" VerticalAlignment="Center" Margin="0,5 "/>
+            <TextBox Watermark="Enter password ..." Text="{Binding Password, Mode=TwoWay}" PasswordChar="*" />
+            <Border Classes="shadow-light">
+              <Button HorizontalAlignment="Right" Content="Login" Command="{Binding LoginCommand}" />
+           </Border>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+               <Button Content="Google" Margin="5" Command="{Binding LoginWithGoogleCommand}" />
+               <Button Content="Facebook" Margin="5" Command="{Binding LoginWithFacebookCommand}" />
+             </StackPanel>
+      </StackPanel>
+    </Border>
+    <TextBlock Grid.Row="3" Text="{Binding StatusMessage}" Foreground="Red" Margin="0,12,0,0" />
   </Grid>
 </UserControl>

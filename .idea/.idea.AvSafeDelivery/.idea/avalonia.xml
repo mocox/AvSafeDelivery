@@ -4,8 +4,8 @@
     <option name="projectPerEditor">
       <map>
         <entry key="AvSafeDelivery/App.axaml" value="AvSafeDelivery.Browser/AvSafeDelivery.Browser.csproj" />
-        <entry key="AvSafeDelivery/Styles/SafeDeliveryStyles.axaml" value="AvSafeDelivery.Browser/AvSafeDelivery.Browser.csproj" />
-        <entry key="AvSafeDelivery/Views/LoginView.axaml" value="AvSafeDelivery.Browser/AvSafeDelivery.Browser.csproj" />
+        <entry key="AvSafeDelivery/Styles/SafeDeliveryStyles.axaml" value="AvSafeDelivery.Desktop/AvSafeDelivery.Desktop.csproj" />
+        <entry key="AvSafeDelivery/Views/LoginView.axaml" value="AvSafeDelivery.Desktop/AvSafeDelivery.Desktop.csproj" />
         <entry key="AvSafeDelivery/Views/MainView.axaml" value="AvSafeDelivery.Desktop/AvSafeDelivery.Desktop.csproj" />
         <entry key="AvSafeDelivery/Views/MainWindow.axaml" value="AvSafeDelivery.Browser/AvSafeDelivery.Browser.csproj" />
         <entry key="AvSafeDelivery/Views/PhotoView.axaml" value="AvSafeDelivery.Browser/AvSafeDelivery.Browser.csproj" />

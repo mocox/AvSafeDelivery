@@ -12,7 +12,7 @@ public class ViewLocator : IDataTemplate
         if (param is null)
             return null;
 
-        // Try to map ViewModel type to a View type in the Views namespace.
+        // Try to map a ViewModel type to a View type in the Views namespace.
         var vmFullName = param.GetType().FullName!;
 
         // Replace the typical ViewModel suffix with View and map ViewModels namespace to Views namespace.

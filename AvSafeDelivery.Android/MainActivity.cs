@@ -107,34 +107,33 @@ public class MainActivity : AvaloniaMainActivity<App>
     {
         base.OnActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQUEST_CAMERA)
+        if (requestCode != REQUEST_CAMERA) return;
+        
+        if (resultCode == Result.Ok && data is { Extras: not null })
         {
-            if (resultCode == Result.Ok && data != null && data.Extras != null)
+            try
             {
-                try
+                var bmp = (Bitmap?)data.Extras.Get("data");
+                if (bmp != null)
                 {
-                    var bmp = (Bitmap?)data.Extras.Get("data");
-                    if (bmp != null)
-                    {
-                        var filename = $"photo_{DateTime.Now:yyyyMMdd_HHmmss}.jpg";
-                        var cachePath = CacheDir?.AbsolutePath ?? FilesDir?.AbsolutePath ?? ".";
-                        var filePath = System.IO.Path.Combine(cachePath, filename);
-                        using var fs = System.IO.File.OpenWrite(filePath);
-                        bmp.Compress(Bitmap.CompressFormat.Jpeg, 90, fs);
-                        fs.Close();
+                    var filename = $"photo_{DateTime.Now:yyyyMMdd_HHmmss}.jpg";
+                    var cachePath = CacheDir?.AbsolutePath ?? FilesDir?.AbsolutePath ?? ".";
+                    var filePath = System.IO.Path.Combine(cachePath, filename);
+                    using var fs = System.IO.File.OpenWrite(filePath);
+                    bmp.Compress(Bitmap.CompressFormat.Jpeg!, 90, fs);
+                    fs.Close();
 
-                        _cameraTcs?.TrySetResult(filePath);
-                        return;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    _cameraTcs?.TrySetException(ex);
+                    _cameraTcs?.TrySetResult(filePath);
                     return;
                 }
             }
-
-            _cameraTcs?.TrySetResult(null);
+            catch (Exception ex)
+            {
+                _cameraTcs?.TrySetException(ex);
+                return;
+            }
         }
+
+        _cameraTcs?.TrySetResult(null);
     }
 }
