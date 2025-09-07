@@ -16,15 +16,15 @@
       <TextBlock Text="Login" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,12" />
     </Panel>
     
-    <Border Grid.Row="1" Width="600" Classes="Bordered shadow-dark">
+    <Border Grid.Row="1" Width="600" Classes="Bordered" Padding="20" HorizontalAlignment="Center">
       <StackPanel HorizontalAlignment="Stretch" Margin="10 0">
             <TextBlock Text="Email" VerticalAlignment="Center" Margin="0 5"/>
             <TextBox Watermark="Enter email ..." Text="{Binding Email, Mode=TwoWay}" />
             <TextBlock Text="Password" VerticalAlignment="Center" Margin="0,5 "/>
             <TextBox Watermark="Enter password ..." Text="{Binding Password, Mode=TwoWay}" PasswordChar="*" />
-            <Border Classes="shadow-light">
-              <Button HorizontalAlignment="Right" Content="Login" Command="{Binding LoginCommand}" />
-           </Border>
+            <Border Classes="shadow-light" HorizontalAlignment="Right" Margin="0 10">
+              <Button Content="Login" Command="{Binding LoginCommand}" />
+            </Border>
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                <Button Content="Google" Margin="5" Command="{Binding LoginWithGoogleCommand}" />

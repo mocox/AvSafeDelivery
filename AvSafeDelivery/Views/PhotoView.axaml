@@ -12,8 +12,8 @@
 
   <Grid RowDefinitions="Auto,Auto,Auto" Margin="12">
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,8">
-      <Button x:Name="UploadButton" Content="Upload Photos" />
-      <Button x:Name="TakePhotoButton" Content="Take Photo" />
+      <Button x:Name="UploadButton" Content="Upload Photos" Margin="5" />
+      <Button x:Name="TakePhotoButton" Content="Take Photo" Margin="5" />
     </StackPanel>
 
     <TextBlock Grid.Row="1" Text="{Binding StatusMessage}" Foreground="Red" HorizontalAlignment="Center" />

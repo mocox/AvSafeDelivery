@@ -2,15 +2,26 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!-- Add Resources Here -->
-    <!-- <Style Selector="Border.shadow-light"> -->
-    <!--     <Setter Property="BoxShadow" Value="3,3,3,0,LightGray"/> -->
-    <!-- </Style> -->
+    <Style Selector="Border.shadow-light">
+        <Setter Property="BoxShadow" Value="3 3 3 2 LightGray"/>
+    </Style>
     <!-- <Style Selector="Border.shadow-dark"> -->
     <!--     <Setter Property="BoxShadow" Value="5,5,5,0,Gray"/> -->
     <!-- </Style> -->
     
     <Style Selector="TextBox">
         <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Padding" Value="8" />
+    </Style>
+    
+    <Style Selector="TextBox:focus  /template/ ContentPresenter">
+        <Setter Property="Background">
+            <SolidColorBrush Color="White" />
+        </Setter>
+        
     </Style>
     
     <Style Selector="TextBlock">
@@ -35,14 +46,12 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="5" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Margin" Value="0,10,0,10" />
     </Style>
     
     <Style Selector="Border.Bordered">
-        <Setter Property="Padding" Value="10" />
         <Setter Property="BorderBrush" Value="#002B80" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="8" />
-        <Setter Property="BoxShadow" Value="5 5 5 3 LightBlue"/>
+        <Setter Property="BoxShadow" Value="5 5 5 3 LightGray"/>
     </Style>
 </Styles>

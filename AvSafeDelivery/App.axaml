@@ -10,7 +10,7 @@
     </Application.DataTemplates>
 
     <Application.Styles>
-        <FluentTheme />
+        <FluentTheme  />
         
         <StyleInclude Source="avares://AvSafeDelivery/Styles/SafeDeliveryStyles.axaml"></StyleInclude>
     </Application.Styles>

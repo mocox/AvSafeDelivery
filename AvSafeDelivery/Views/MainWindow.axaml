@@ -8,5 +8,5 @@
         x:Class="AvSafeDelivery.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="AvSafeDelivery">
-        <views:MainView Background="#FFFF80" />
+        <views:MainView Background="AliceBlue"  />
 </Window>

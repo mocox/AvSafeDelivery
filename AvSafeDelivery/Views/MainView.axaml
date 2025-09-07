@@ -20,9 +20,9 @@
 
     <!-- Simple navigation header -->
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,8">
-      <Button Content="Login" Command="{Binding ShowLoginCommand}" />
-      <Button Content="Register" Command="{Binding ShowRegisterCommand}" />
-      <Button Content="Photos" Command="{Binding ShowPhotoCommand}" />
+      <Button Content="Login" Command="{Binding ShowLoginCommand}" Margin="5 0" />
+      <Button Content="Register" Command="{Binding ShowRegisterCommand}" Margin="5 0" />
+      <Button Content="Photos" Command="{Binding ShowPhotoCommand}" Margin="5 0" />
     </StackPanel>
 
     <!-- Host the current view via the ViewLocator data template mapping -->
