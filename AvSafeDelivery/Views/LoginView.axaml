@@ -3,26 +3,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:AvSafeDelivery.ViewModels"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
              x:Class="AvSafeDelivery.Views.LoginView"
              x:DataType="vm:LoginViewModel">
   <Design.DataContext>
     <vm:LoginViewModel />
   </Design.DataContext>
 
-  <Grid RowDefinitions="Auto,Auto,Auto,Auto" Margin="16">
+  <StackPanel Orientation="Vertical" Width="75" Margin="16">
     
     <Panel>
       <TextBlock Text="Login" FontSize="20" HorizontalAlignment="Center" Margin="0,0,0,12" />
     </Panel>
     
-    <Border Grid.Row="1" Width="600" Classes="Bordered" Padding="20" HorizontalAlignment="Center">
+    <Border Classes="Bordered" Width="400" Padding="20" HorizontalAlignment="Center">
       <StackPanel HorizontalAlignment="Stretch" Margin="10 0">
             <TextBlock Text="Email" VerticalAlignment="Center" Margin="0 5"/>
             <TextBox Watermark="Enter email ..." Text="{Binding Email, Mode=TwoWay}" />
             <TextBlock Text="Password" VerticalAlignment="Center" Margin="0,5 "/>
             <TextBox Watermark="Enter password ..." Text="{Binding Password, Mode=TwoWay}" PasswordChar="*" />
-            <Border Classes="shadow-light" HorizontalAlignment="Right" Margin="0 10">
+            <Border Classes="shadow-light" CornerRadius="8" HorizontalAlignment="Right" Margin="0 10">
               <Button Content="Login" Command="{Binding LoginCommand}" />
             </Border>
             
@@ -33,5 +33,5 @@
       </StackPanel>
     </Border>
     <TextBlock Grid.Row="3" Text="{Binding StatusMessage}" Foreground="Red" Margin="0,12,0,0" />
-  </Grid>
+  </StackPanel>
 </UserControl>

@@ -3,7 +3,7 @@
 
     <!-- Add Resources Here -->
     <Style Selector="Border.shadow-light">
-        <Setter Property="BoxShadow" Value="3 3 3 2 LightGray"/>
+        <Setter Property="BoxShadow" Value="3 3 3 1 LightGray"/>
     </Style>
     <!-- <Style Selector="Border.shadow-dark"> -->
     <!--     <Setter Property="BoxShadow" Value="5,5,5,0,Gray"/> -->

@@ -3,7 +3,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:AvSafeDelivery.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
              x:Class="AvSafeDelivery.Views.MainView"
              x:DataType="vm:MainViewModel">
   <Design.DataContext>
@@ -12,7 +12,7 @@
     <vm:MainViewModel />
   </Design.DataContext>
 
-  <Grid Margin="8">
+  <Grid Margin="8 50">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto" />
       <RowDefinition Height="*" />
